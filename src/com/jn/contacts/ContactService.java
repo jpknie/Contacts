@@ -1,5 +1,6 @@
 package com.jn.contacts;
 
+import java.io.Serializable;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,9 +18,10 @@ import com.mongodb.*;
 import org.apache.commons.beanutils.BeanUtils;
 
 
-public class ContactService {
+public class ContactService implements Serializable {
 	
-    private static ContactService instance;
+	private static final long serialVersionUID = 1L;
+	private static ContactService instance;
     private static ContactsDatabase db = new ContactsDatabase("localhost");
     
     public static ContactService createDemoService() {
@@ -31,6 +33,7 @@ public class ContactService {
     	if(stringFilter == null || stringFilter == "") {
     		return db.findAll();
     	}
+
     	return db.queryByName(stringFilter);
     }
 
