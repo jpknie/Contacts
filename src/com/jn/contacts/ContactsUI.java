@@ -23,7 +23,7 @@ public class ContactsUI extends UI {
 
 	TextField filter = new TextField();
 	Grid contactList = new Grid();
-	Button newContact = new Button("Add Contact");
+	Button newContact = new Button("+");
 	ContactForm contactForm = new ContactForm();
 	
 	ContactService service = ContactService.createDemoService();
